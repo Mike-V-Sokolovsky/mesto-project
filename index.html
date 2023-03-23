@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Место</title>
+        <link rel="stylesheet" href="./pages/index.css">
+    </head>
+    <body class="page">
+        <div class="popup">
+            <div class="popup__container"> 
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <button class="popup__close" type="button" aria-label="Закрыть"></button>
+                <form class="popup__form" action="#" name="yourSelf">
+                    <input class="popup__info" type="text" placeholder="имя" value="Жак-Ив Кусто" name="name" required>
+                    <input class="popup__info" type="text" placeholder="своя специальность" value="Исследователь океана" name="job" required>
+                    <button class="popup__save" type="submit" aria-label="Сохранить">Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <header class="header">
+            <a class="header__link" href="#">
+                <img class="header__logo" src="./images/" alt="логотип Mesto Russia">
+            </a>
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img class="profile__avatar" src="./images/" alt="аватар профиля">
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button class="profile__change" type="button"><img src="./images/" alt="кнопка редактирования профиля"></button>
+                <p class="profile__info">Исследователь океана</p>
+                <button class="profile__button" type="button" aria-label="кнопка добавления профиля"></button>
+            </section>
+            <section class="elements">
+                <article class="element">
+                    <img class="element__img" src="./images/" alt="картинка из фотогалереи профиля">
+                    <h2 class="element__title">Карачевск</h2>
+                    <button class="element__like-button" type="button" aria-label="кнопка лайка"></button>
+                </article>
+                <article class="element">
+                    <img class="element__img" src="./images/" alt="картинка из фотогалереи профиля">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like-button" type="button" aria-label="кнопка лайка"></button>
+                </article>
+                <article class="element">
+                    <img class="element__img" src="./images/" alt="картинка из фотогралереи профиля">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like-button" type="button" aria-label="кнопка лайка"></button>
+                </article>
+                <article class="element">
+                    <img class="element__img" src="./images/" alt="картинка из фотогалереи профиля">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like-button" type="button" aria-label="лайк"></button>
+                </article>
+                <article class="element">
+                    <img class="element__img" src="./images/" alt="картинка из фотогалерии профиля">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like-button" type="button" aria-label="кнопка лайка"></button>
+                </article>
+                <article class="element">
+                    <img class="element__img" src="./images/" alt="картинка из фотогалереи профиля">
+                    <h2 class="element__title">Карачаево-Черкессия</h2>
+                    <button class="element__like-button" type="button" aria-label="кнопка лайка"></button>
+                </article>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__text">&#169; 2023 Mesto Russia</p>
+        </footer>
+    </body>
+</html>

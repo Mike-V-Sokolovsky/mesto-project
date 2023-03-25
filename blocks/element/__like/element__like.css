@@ -5,4 +5,10 @@
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
+    transition: all 5s;
+}
+
+.element__like:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }

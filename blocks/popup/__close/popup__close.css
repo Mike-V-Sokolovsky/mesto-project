@@ -13,8 +13,12 @@
     background-size: 100%;
     border: 0;
     z-index: 2;
-    transition: all .8s;
+    transition: all 5s;
+}
+
+.popup__close:hover {
     cursor: pointer;
+    opacity: 0.6;
 }
 
 @media screen and (min-width: 320px) and (max-width: 1023px) {

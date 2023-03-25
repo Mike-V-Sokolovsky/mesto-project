@@ -1,4 +1,5 @@
 .profile__info {
+    position: relative;
     min-width: 336px;
     display: flex;
     flex-wrap: wrap;

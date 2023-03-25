@@ -1,0 +1,16 @@
+.profile__button {
+    padding: 0;
+    min-width: 150px;
+    min-height: 50px;
+    background-image: url(../../../images/Vector.png);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center;
+    border: 2px solid #FFF;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1023px) {
+    .profile__button {
+        min-width: 282px;
+    }
+}

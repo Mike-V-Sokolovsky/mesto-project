@@ -1,0 +1,17 @@
+.profile__change {
+    padding: 0;
+    min-width: 24px;
+    min-height: 24px;
+    background-image: url(../../../images/Vectors.png);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center;
+    border: 1px solid #FFF;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1023px) {
+    .profile__change {
+        min-width: 18px;
+        min-height: 18px;
+    }
+}

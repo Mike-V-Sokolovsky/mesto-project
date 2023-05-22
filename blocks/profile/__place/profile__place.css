@@ -1,4 +1,4 @@
-.profile__button {
+.profile__place {
     padding: 0;
     min-width: 150px;
     min-height: 50px;
@@ -8,16 +8,16 @@
     background-position: center;
     border: 2px solid #FFF;
     border-radius: 2px;
-    transition: all 5s;
+    transition: all 1s;
 }
 
-.profile__button:hover {
+.profile__place:hover {
     cursor: pointer;
     opacity: 0.6;
 }
 
 @media screen and (min-width: 320px) and (max-width: 1023px) {
-    .profile__button {
+    .profile__place {
         background-size: 16px;
         min-width: 282px;
     }

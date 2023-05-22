@@ -7,7 +7,7 @@
     background-color: transparent;
     background-position: center;
     border: 1px solid #FFF;
-    transition: all 5s;
+    transition: all 1s;
 }
 
 .profile__change:hover {

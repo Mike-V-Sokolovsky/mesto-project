@@ -5,5 +5,10 @@
     object-fit: cover;
     aspect-ratio: auto;
     object-position: center;
+    transition: all 0.5s;
+}
+
+.element__img:hover {
     cursor: pointer;
+    opacity: 0.7;
 }

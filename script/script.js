@@ -22,27 +22,27 @@ const cardsTemplate = document.querySelector('.cards').content;
 const elementsCards = [
     {
       name: 'Олимпийский парк',
-      link: '../images/photo_2022-06-30_19-46-35.jpg'
+      link: '/images/photo_2022-06-30_19-46-35.jpg'
     },
     {
       name: 'Красная Поляна',
-      link: '../images/imgonline-com-ua-Resize-n0aceFLare5qXkM.jpg'
+      link: '/images/imgonline-com-ua-Resize-n0aceFLare5qXkM.jpg'
     },
     {
       name: 'Сочи',
-      link: '../images/IMG_20230323_231610_477.jpg'
+      link: '/images/IMG_20230323_231610_477.jpg'
     },
     {
       name: 'Инсбрук',
-      link: '../images/HAPsjyIEt-Y.jpg'
+      link: '/images/HAPsjyIEt-Y.jpg'
     },
     {
       name: 'Красноярск',
-      link: '../images/ddGoCtvY5SE-1.jpg'
+      link: '/images/ddGoCtvY5SE-1.jpg'
     },
     {
       name: 'Москва',
-      link: '../images/IMG_20230323_231559_121.jpg'
+      link: '/images/IMG_20230323_231559_121.jpg'
     }
     ];
 

@@ -42,7 +42,7 @@ const elementsCards = [
     },
     {
       name: 'Москва',
-      link: 'images/IMG_20230323_231559_121.jpg'
+      link: 'mesto-project/images/IMG_20230323_231559_121.jpg'
     }
     ];
 

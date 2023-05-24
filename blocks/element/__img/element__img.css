@@ -6,3 +6,7 @@
     aspect-ratio: auto;
     object-position: center;
 }
+
+element__img:hover {
+    cursor: pointer;
+}

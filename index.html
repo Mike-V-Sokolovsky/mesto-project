@@ -26,55 +26,17 @@
                 <button class="profile__place" type="button" aria-label="кнопка добавления новой локации"></button>
             </section>
             <section class="elements">
+            </section>
+            <template class="cards">
                 <article class="element">
-                    <img class="element__img" src="./images/IMG_20230323_231559_121.jpg" alt="Панорама района Чертаново Северное">
+                    <img class="element__img" src="#" alt="Описание картинки">
                     <button class="element__trash" type="button" aria-label="кнопка корзина"></button>
                     <div class="element__block">
-                        <h2 class="element__title">Москва</h2>
-                        <button class="element__like" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </article>
-                <article class="element">
-                    <img class="element__img" src="./images/ddGoCtvY5SE-1.jpg" alt="Вид на Красноярскую ГЭС">
-                    <div class="element__block">
-                        <h2 class="element__title">Красноярск</h2>
-                        <button class="element__trash" type="button" aria-label="кнопка корзина"></button>
-                        <button class="element__like" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </article>
-                <article class="element">
-                    <img class="element__img" src="./images/HAPsjyIEt-Y.jpg" alt="Панорама города Инсбрук">
-                    <div class="element__block">
-                        <h2 class="element__title">Инсбрук</h2>
-                        <button class="element__trash" type="button" aria-label="кнопка корзина"></button>
-                        <button class="element__like" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </article>
-                <article class="element">
-                    <img class="element__img" src="./images/IMG_20230323_231610_477.jpg" alt="Панорама Сочи">
-                    <div class="element__block">
-                        <h2 class="element__title">Сочи</h2>
-                        <button class="element__trash" type="button" aria-label="кнопка корзина"></button>
-                        <button class="element__like" type="button" aria-label="лайк"></button>
-                    </div>
-                </article>
-                <article class="element">
-                    <img class="element__img" src="./images/imgonline-com-ua-Resize-n0aceFLare5qXkM.jpg" alt="Фотография с горы Каменный столб">
-                    <div class="element__block">
-                        <h2 class="element__title">Красная Поляна</h2>
-                        <button class="element__trash" type="button" aria-label="кнопка корзина"></button>
-                        <button class="element__like" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </article>
-                <article class="element">
-                    <img class="element__img" src="./images/photo_2022-06-30_19-46-35.jpg" alt="Вид на Олимпийский парк Адлера">
-                    <div class="element__block">
                         <h2 class="element__title">Олимпийский парк</h2>
-                        <button class="element__trash" type="button" aria-label="кнопка корзина"></button>
                         <button class="element__like" type="button" aria-label="кнопка лайка"></button>
                     </div>
                 </article>
-            </section>
+            </template>
         </main>
         <footer class="footer">
             <p class="footer__text">&#169; 2023 Mesto Russia</p>
@@ -95,11 +57,18 @@
                 <h2 class="popup__title">Новое место</h2>
                 <button class="popup__close popup__close-place" type="button" aria-label="Закрыть"></button>
                 <form class="popup__form popup__form-place" action="#" name="place">
-                    <input class="popup__info" type="text" placeholder="имя" value="Название" name="name" required>
-                    <input class="popup__info" type="url" placeholder="своя специальность" value="Ссылка на картинку" name="url" required>
+                    <input class="popup__info popup__info-place" type="text" placeholder="имя" value="Название" name="name" required>
+                    <input class="popup__info popup__info-link" type="url" placeholder="своя специальность" value="Ссылка на картинку" name="url" required>
                     <button class="popup__save" type="submit" aria-label="Создать">Создать</button>
                 </form>
             </div>
+        </div>
+        <div class="popup popup-image">
+            <button type="button" class="popup__close" aria-label="Закрыть"></button>
+            <figure class="popup__container popup__container-photo">
+                <img class="popup__img" src="#" alt="попап картинки">
+                <figcaption class="popup__caption">Название места</figcaption>
+            </figure>
         </div>
     </body>
     <script src="./script/script.js"></script>

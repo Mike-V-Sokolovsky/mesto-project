@@ -1,36 +1,41 @@
 const profileChange = document.querySelector('.profile__change');
-const popupProfile = document.querySelector('.popup-profile');
-const popupCloseProfile = document.querySelector('.popup__close-profile');
+const popupProfile = document.querySelector('.popup_for_profile');
+const popupCloseProfile = document.querySelector('.popup__close_for_profile');
 
 const profilePlace = document.querySelector('.profile__place');
-const popupPlace = document.querySelector('.popup-place');
-const popupClosePlace = document.querySelector('.popup__close-place');
+const popupPlace = document.querySelector('.popup_for_place');
+const popupClosePlace = document.querySelector('.popup__close_for_place');
 
-const formProfile = document.querySelector('.popup__form-profile');
+const popupForImage = document.querySelector('.popup_for_image');
+const popupCaption = document.querySelector('.popup__caption');
+const popupCloseImage = document.querySelector('.popup__close_for_image');
+const popupImage = document.querySelector('.popup__img');
+
+const formProfile = document.querySelector('.popup__form_for_profile');
 const profileTitle = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
-const nameInput = document.querySelector('.popup__info-name');
-const jobInput = document.querySelector('.popup__info-job');
+const nameInput = document.querySelector('.popup__info_for_name');
+const jobInput = document.querySelector('.popup__info_for_job');
 
-const formPlace = document.querySelector('.popup__form-place');
-const placeInput = document.querySelector('.popup__info-place');
-const linkInput = document.querySelector('.popup__info-link');
+const formPlace = document.querySelector('.popup__form_for_place');
+const placeInput = document.querySelector('.popup__info_for_place');
+const linkInput = document.querySelector('.popup__info_for_link');
 
 const elements = document.querySelector('.elements');
 const cardsTemplate = document.querySelector('.cards').content;
 
 const elementsCards = [
     {
-      name: 'Олимпийский парк',
-      link: 'images/photo_2022-06-30_19-46-35.jpg'
+      name: 'Красная Поляна',
+      link: 'images/20220620_143407-01.jpeg'
     },
     {
-      name: 'Красная Поляна',
-      link: 'images/imgonline-com-ua-Resize-n0aceFLare5qXkM.jpg'
+      name: 'Санкт-Петербург',
+      link: 'images/IMG_20230514_132614.jpg'
     },
     {
       name: 'Сочи',
-      link: 'images/IMG_20230323_231610_477.jpg'
+      link: 'images/photo_2022-06-30_19-46-35.jpg'
     },
     {
       name: 'Инсбрук',
@@ -42,7 +47,7 @@ const elementsCards = [
     },
     {
       name: 'Москва',
-      link: 'images/IMG_20230323_231559_121.jpg'
+      link: 'images/IMG_20230525_210917.jpg'
     }
     ];
 
@@ -64,6 +69,11 @@ popupClosePlace.addEventListener('click', () => {
   popupPlace.classList.remove('popup_opened');
 });
 
+// закрываем попап изображения
+popupCloseImage.addEventListener('click', () => {
+  popupForImage.classList.remove('popup_opened');
+});
+
 // меняем данные профиля в попапе
 formProfile.addEventListener('submit', function (evt) {
   evt.preventDefault();
@@ -81,7 +91,17 @@ formPlace.addEventListener('submit', function(evt) {
   formPlace.reset();
 });
 
-// клонируем и воспроизводим структуру карточки
+// прописываем, что и как тянется из карточки в попап
+function popupImageCreation(e, popupImage, popupCaption) {
+  const element = e.target.parentNode;
+  const image = element.querySelector('.element__img');
+  const caption = element.querySelector('.element__title');
+  popupImage.src = image.src;
+  popupImage.alt = caption.textContent;
+  popupCaption.textContent = caption.textContent;
+}
+
+// клонируем и воспроизводим структуру и логику карточки
 function addPlace(nameValue, linkValue) {
   const element = cardsTemplate.querySelector('.element').cloneNode(true);
   const elementTrash = element.querySelector('.element__trash');
@@ -98,6 +118,10 @@ function addPlace(nameValue, linkValue) {
       if (e.target.className === 'element__trash' && e.target.nodeName === 'BUTTON') {
           elementTrash.parentNode.remove();
       }
+      if (e.target.className === 'element__img' && e.target.nodeName ==='IMG') {
+        popupForImage.classList.add('popup_opened');
+        popupImageCreation(e, popupImage, popupCaption)
+    }
   })
   elements.prepend(element);
 }

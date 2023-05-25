@@ -1,16 +1,18 @@
 .footer__text {
-    margin: 0 auto;
+    margin: 0;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    text-align: left;
+    text-align: right;
     color: #545454;
+    max-width: 185px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 1023px) {
     .footer__text {
         font-size: 14px;
         line-height: 17px;
+        max-width: 145px;
     }
 }

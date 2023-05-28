@@ -1,4 +1,7 @@
 .popup__img {
+    object-fit: contain;
+    aspect-ratio: auto;
+    object-position: center;
     max-width: 75vw;
-    max-height: 75vh;;
+    max-height: 75vh;
 }

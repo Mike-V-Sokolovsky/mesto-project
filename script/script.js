@@ -1,14 +1,15 @@
-const profileChange = document.querySelector('.profile__change');
+// больше констант Богу констант
+const buttonOpenPopupEditProfile = document.querySelector('.profile__change');
 const popupProfile = document.querySelector('.popup_for_profile');
-const popupCloseProfile = document.querySelector('.popup__close_for_profile');
+const buttonClosePopupEditProfile = document.querySelector('.popup__close_for_profile');
 
-const profilePlace = document.querySelector('.profile__place');
+const buttonOpenPopupAddCard = document.querySelector('.profile__place');
 const popupPlace = document.querySelector('.popup_for_place');
-const popupClosePlace = document.querySelector('.popup__close_for_place');
+const buttonClosePopupAddCard = document.querySelector('.popup__close_for_place');
 
 const popupForImage = document.querySelector('.popup_for_image');
 const popupCaption = document.querySelector('.popup__caption');
-const popupCloseImage = document.querySelector('.popup__close_for_image');
+const buttonClosePopupImage = document.querySelectorAll('.popup__close_for_image');
 const popupImage = document.querySelector('.popup__img');
 
 const formProfile = document.querySelector('.popup__form_for_profile');
@@ -24,57 +25,49 @@ const linkInput = document.querySelector('.popup__info_for_link');
 const elements = document.querySelector('.elements');
 const cardsTemplate = document.querySelector('.cards').content;
 
-const elementsCards = [
-    {
-      name: 'Красная Поляна',
-      link: 'images/20220620_143407-01.jpeg'
-    },
-    {
-      name: 'Санкт-Петербург',
-      link: 'images/IMG_20230514_132614.jpg'
-    },
-    {
-      name: 'Сочи',
-      link: 'images/photo_2022-06-30_19-46-35.jpg'
-    },
-    {
-      name: 'Инсбрук',
-      link: 'images/HAPsjyIEt-Y.jpg'
-    },
-    {
-      name: 'Красноярск',
-      link: 'images/ddGoCtvY5SE-1.jpg'
-    },
-    {
-      name: 'Москва',
-      link: 'images/IMG_20230525_210917.jpg'
-    }
-    ];
+// создаю универсальные функции управления состоянием видимости модальных окон
+// и функционал к ним
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
 
-// открываем и закрываем попап профиля
-profileChange.addEventListener('click', () => {
-    popupProfile.classList.add('popup_opened');
+buttonOpenPopupEditProfile.addEventListener('click', (e) => {
+  if (e.target && e.currentTarget) {
+    openPopup(popupProfile);
+  }
 });
 
-popupCloseProfile.addEventListener('click', () => {
-    popupProfile.classList.remove('popup_opened');
+buttonClosePopupEditProfile.addEventListener('click', (e) => {
+  if (e.target && e.currentTarget) {
+    closePopup(popupProfile);
+  }
+})
+
+buttonOpenPopupAddCard.addEventListener('click', (e) => {
+  if (e.target && e.currentTarget) {
+    openPopup(popupPlace);
+  }
 });
 
-// открываем и закрываем попап карточки
-profilePlace.addEventListener('click', () => {
-  popupPlace.classList.add('popup_opened');
+buttonClosePopupAddCard.addEventListener('click', (e) => {
+  if (e.target.className && e.currentTarget) {
+    closePopup(popupPlace);
+  }
+})
+
+buttonClosePopupImage.forEach(item => {
+  item.addEventListener('click', (e) => {
+      const close = e.target.parentNode.parentNode;
+      if (e.target && e.currentTarget) {
+        closePopup(close);
+      }
+  });
 });
 
-popupClosePlace.addEventListener('click', () => {
-  popupPlace.classList.remove('popup_opened');
-});
-
-// закрываем попап изображения
-popupCloseImage.addEventListener('click', () => {
-  popupForImage.classList.remove('popup_opened');
-});
-
-// меняем данные профиля в попапе
+// меняю данные профиля в попапе
 formProfile.addEventListener('submit', function (evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
@@ -83,15 +76,16 @@ formProfile.addEventListener('submit', function (evt) {
   formProfile.reset();
 });
 
-// добавляем новую карточку на страницу через попап
+// добавляю новую карточку на страницу через попап
 formPlace.addEventListener('submit', function(evt) {
   evt.preventDefault();
-  addPlace(placeInput.value, linkInput.value);
+  createCard(placeInput.value, linkInput.value);
   popupPlace.classList.remove('popup_opened');
+  addCard(placeInput.value, linkInput.value, elements);
   formPlace.reset();
 });
 
-// прописываем, что и как тянется из карточки в попап
+// прописываю, что и как тянется из карточки в попап
 function popupImageCreation(e, popupImage, popupCaption) {
   const element = e.target.parentNode;
   const image = element.querySelector('.element__img');
@@ -101,13 +95,14 @@ function popupImageCreation(e, popupImage, popupCaption) {
   popupCaption.textContent = caption.textContent;
 }
 
-// клонируем и воспроизводим структуру и логику карточки
-function addPlace(nameValue, linkValue) {
+// клонирую и создаю карточку
+function createCard(nameValue, linkValue) {
   const element = cardsTemplate.querySelector('.element').cloneNode(true);
+  const elementImg = element.querySelector('.element__img');
   const elementTrash = element.querySelector('.element__trash');
   const elementLike = element.querySelector('.element__like');
-  element.querySelector('.element__img').src = linkValue;
-  element.querySelector('.element__img').alt = nameValue
+  elementImg.src = linkValue;
+  elementImg.alt = nameValue;
   element.querySelector('.element__title').textContent = nameValue;
   element.addEventListener('click', (e) => {
       if (e.target.className === 'element__like' && e.target.nodeName === 'BUTTON') {
@@ -123,10 +118,16 @@ function addPlace(nameValue, linkValue) {
         popupImageCreation(e, popupImage, popupCaption)
     }
   })
-  elements.prepend(element);
+  return element;
 }
 
-// заносим карточки на страницу, пробежавшись по массиву
-for (let card of elementsCards) {
-  addPlace(card.name, card.link)
+// добавляею карточку на сайт
+function addCard(name, link, elements) {
+  const card = createCard(name, link);
+  elements.prepend(card);
 }
+
+// пробегаюсь функцией создания карточек по массиву с фотографиями
+elementsCards.forEach((card) => {
+  addCard(card.name, card.link, elements);
+})

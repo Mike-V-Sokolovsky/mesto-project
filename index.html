@@ -46,8 +46,8 @@
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <button class="popup__close popup__close_for_profile" type="button" aria-label="Закрыть"></button>
                 <form class="popup__form popup__form_for_profile" action="#" name="yourSelf">
-                    <input class="popup__info popup__info_for_name" type="text" placeholder="имя" value="Жак-Ив Кусто" name="name">
-                    <input class="popup__info popup__info_for_job" type="text" placeholder="своя специальность" value="Исследователь океана" name="job">
+                    <input class="popup__info popup__info_for_name" type="text" placeholder="имя" name="name" required>
+                    <input class="popup__info popup__info_for_job" type="text" placeholder="своя специальность" name="job" required>
                     <button class="popup__save popup__save_for_profile" type="submit" aria-label="Сохранить">Сохранить</button>
                 </form>
             </div>
@@ -57,8 +57,8 @@
                 <h2 class="popup__title">Новое место</h2>
                 <button class="popup__close popup__close_for_place" type="button" aria-label="Закрыть"></button>
                 <form class="popup__form popup__form_for_place" action="#" name="place">
-                    <input class="popup__info popup__info_for_place" type="text" placeholder="имя" value="Название" name="name">
-                    <input class="popup__info popup__info_for_link" type="url" placeholder="своя специальность" value="Ссылка на картинку" name="url">
+                    <input class="popup__info popup__info_for_place" type="text" placeholder="имя" name="name" required>
+                    <input class="popup__info popup__info_for_link" type="url" placeholder="своя специальность" name="url" required>
                     <button class="popup__save popup__save_for_place" type="submit" aria-label="Создать">Создать</button>
                 </form>
             </div>
